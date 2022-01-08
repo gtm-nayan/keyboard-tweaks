@@ -5,9 +5,9 @@
 ;
 ; The script defines F22 as Extend, so you can apply to any key of your choice
 ; e.g. to use CapsLock, define:
-; #InputLevel 1
-; CapsLock::F22
-; #InputLevel 0
+#InputLevel 1
+CapsLock::F22
+#InputLevel 0
 
 #Persistent
 SetCapsLockState, AlwaysOff
@@ -65,6 +65,15 @@ F22 & SC00D::
   Send {Blind}{F12}
 return
 
+; Extend + Backspace as CapsLock
+F22 & SC00E::
+  GetKeyState, cp, CapsLock, T
+  if cp = D
+    SetCapsLockState, AlwaysOff
+  else
+    SetCapsLockState, AlwaysOn
+return
+
 ; top row
 
 F22 & SC010::
@@ -72,8 +81,8 @@ F22 & SC010::
 return
 
 F22 & SC011::
-  mouseclick, x1
-  ;Send {Browser_Back}
+  ; mouseclick, x1
+  Send {Browser_Back}
 return
 
 F22 & SC012::
@@ -81,8 +90,8 @@ F22 & SC012::
 return
 
 F22 & SC013::
-  mouseclick, x2
-  ;Send {Browser_Forward}
+  ; mouseclick, x2
+  Send {Browser_Forward}
 return
 
 F22 & SC014::
@@ -106,15 +115,15 @@ F22 & SC018::
 return
 
 F22 & SC019::
-  Send {AppsKey}
+  Send {Blind}{Del}
 return
 
 F22 & SC01A::
-  Send {Blind}{PrintScreen}
+  Send {Blind}{Esc}
 return
 
 F22 & SC01B::
-  Send {Insert}
+  Send {AppsKey}
 return
 
 ; middle row
@@ -168,16 +177,11 @@ F22 & SC026::
 return
 
 F22 & SC027::
-  Send {Blind}{Del}
+  Send {Blind}{Backspace}
 return
 
-F22 & SC028::
-  GetKeyState, cp, CapsLock, T
-  if cp = D
-    SetCapsLockState, AlwaysOff
-  else
-    SetCapsLockState, AlwaysOn
-return
+; F22 & SC028::
+; return
 
 ; bottom row
 
@@ -202,22 +206,23 @@ F22 & SC02F::
 return
 
 F22 & SC030::
-return
-
-F22 & SC031::
   mouseclick, left
 return
 
+F22 & SC031::
+  mouseclick, right
+return
+
 F22 & SC032::
-  Send {Blind}{Backspace}
+  MouseMove, -10, 0, 0, R
 return
 
 F22 & SC033::
-  Send {Blind}{F13}
+  mouseclick, middle
 return
 
 F22 & SC034::
-  Send {Blind}{F14}
+  MouseMove, 10, 0, 0, R
 return
 
 F22 & SC035::
