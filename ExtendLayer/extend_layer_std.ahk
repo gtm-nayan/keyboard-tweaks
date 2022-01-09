@@ -176,8 +176,13 @@ F22 & SC027::
   Send {Blind}{Backspace}
 return
 
-; F22 & SC028::
-; return
+F22 & SC028::
+  Send {Blind}{AltDown}
+return
+
+F22 & SC028 Up::
+  Send {AltUp}
+return
 
 ; bottom row
 
