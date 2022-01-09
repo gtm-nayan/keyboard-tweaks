@@ -95,7 +95,7 @@ F22 & SC013::
 return
 
 F22 & SC014::
-  MouseMove, 0, 10, 0, R
+  MouseMove, 0, -10, 0, R
 return
 
 F22 & SC015::
@@ -153,7 +153,7 @@ F22 & SC021 Up::
 return
 
 F22 & SC022::
-  MouseMove, 0, -10, -, R
+  MouseMove, 0, 10, 0, R
 return
 
 F22 & SC023::
