@@ -95,7 +95,7 @@ F22 & SC013::
 return
 
 F22 & SC014::
-  Send {Insert}
+  MouseMove, 0, 10, 0, R
 return
 
 F22 & SC015::
@@ -153,11 +153,7 @@ F22 & SC021 Up::
 return
 
 F22 & SC022::
-  Send {Blind}{AltDown}
-return
-
-F22 & SC022 Up::
-  Send {AltUp}
+  MouseMove, 0, -10, -, R
 return
 
 F22 & SC023::
@@ -214,7 +210,7 @@ F22 & SC031::
 return
 
 F22 & SC032::
-  MouseMove, -10, 0, 0, R
+  MouseMove, -20, 0, 0, R
 return
 
 F22 & SC033::
@@ -222,7 +218,7 @@ F22 & SC033::
 return
 
 F22 & SC034::
-  MouseMove, 10, 0, 0, R
+  MouseMove, 20, 0, 0, R
 return
 
 F22 & SC035::
