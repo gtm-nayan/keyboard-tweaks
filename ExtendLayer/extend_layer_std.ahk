@@ -126,6 +126,9 @@ F22 & SC01B::
   Send {AppsKey}
 return
 
+F22 & SC02B::
+  SendInput {Raw}https://tenor.com/view/jackhanmer-construction-worker-construction-gif-5548554
+return
 ; middle row
 
 F22 & SC01E::
