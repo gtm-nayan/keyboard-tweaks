@@ -233,9 +233,9 @@ F22 & SC035::
   Send {LWin}
 return
 
-F22 & SC039::
-  Send {Return}
-return
+; F22 & SC039::
+;   Send {Return}
+; return
 
 ; RAlt cancel caps / nav layer
 
