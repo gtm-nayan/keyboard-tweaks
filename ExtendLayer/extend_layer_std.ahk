@@ -180,11 +180,7 @@ F22 & SC027::
 return
 
 F22 & SC028::
-  Send {Blind}{AltDown}
-return
-
-F22 & SC028 Up::
-  Send {AltUp}
+  SendInput {Raw}_
 return
 
 ; bottom row
