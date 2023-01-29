@@ -1,248 +1,37 @@
-
-; AutoHotKey script for defining an Extend layer (default is CapsLock)
-; Hold Extend and press other keys to provide navigation and other fuctionality
-; http://www.keyboard-layout-editor.com/#/gists/5f31818f137440704db9
-;
-; The script defines F22 as Extend, so you can apply to any key of your choice
-; e.g. to use CapsLock, define:
-#InputLevel 1
-CapsLock::F22
-#InputLevel 0
-
+#SingleInstance, force
 #Persistent
-SetCapsLockState, AlwaysOff
 
-; digit row
+CapsLock::Return
+#If GetKeyState("CapsLock", "P")
+    SC00E::SetCapsLockState % !GetKeyState("CapsLock", "T")
 
-F22 & SC001::
-return
+    ; top row
+    SC012::^f
+    SC015::PgUp
+    SC016::Home
+    SC017::Up
+    SC018::End
+    SC019::Del
+    SC01A::Esc
+    SC01B::AppsKey
 
-F22 & SC002::
-  Send {Blind}{F1}
-return
+    ; middle row
+    SC01E::^a
+    SC01F::Tab
+    SC020::Shift
+    SC021::Ctrl
+    SC023::PgDn
+    SC024::Left
+    SC025::Down
+    SC026::Right
+    SC027::BackSpace
+    SC028::_
 
-F22 & SC003::
-  Send {Blind}{F2}
-return
-
-F22 & SC004::
-  Send {Blind}{F3}
-return
-
-F22 & SC005::
-  Send {Blind}{F4}
-return
-
-F22 & SC006::
-  Send {Blind}{F5}
-return
-
-F22 & SC007::
-  Send {Blind}{F6}
-return
-
-F22 & SC008::
-  Send {Blind}{F7}
-return
-
-F22 & SC009::
-  Send {Blind}{F8}
-return
-
-F22 & SC00A::
-  Send {Blind}{F9}
-return
-
-F22 & SC00B::
-  Send {Blind}{F10}
-return
-
-F22 & SC00C::
-  Send {Blind}{F11}
-return
-
-F22 & SC00D::
-  Send {Blind}{F12}
-return
-
-; Extend + Backspace as CapsLock
-F22 & SC00E::
-  GetKeyState, cp, CapsLock, T
-  if cp = D
-    SetCapsLockState, AlwaysOff
-  else
-    SetCapsLockState, AlwaysOn
-return
-
-; top row
-
-F22 & SC010::
-  Send {Esc}
-return
-
-F22 & SC011::
-  ; mouseclick, x1
-  Send {Browser_Back}
-return
-
-F22 & SC012::
-  Send {CtrlDown}{f}{CtrlUp}
-return
-
-F22 & SC013::
-  ; mouseclick, x2
-  Send {Browser_Forward}
-return
-
-F22 & SC014::
-  MouseMove, 0, -10, 0, R
-return
-
-F22 & SC015::
-  Send {Blind}{PgUp}
-return
-
-F22 & SC016::
-  Send {Blind}{Home}
-return
-
-F22 & SC017::
-  Send {Blind}{Up}
-return
-
-F22 & SC018::
-  Send {Blind}{End}
-return
-
-F22 & SC019::
-  Send {Blind}{Del}
-return
-
-F22 & SC01A::
-  Send {Blind}{Esc}
-return
-
-F22 & SC01B::
-  Send {AppsKey}
-return
-
-F22 & SC02B::
-  SendInput {Raw}https://tenor.com/view/jackhanmer-construction-worker-construction-gif-5548554
-return
-; middle row
-
-F22 & SC01E::
-  Send {CtrlDown}{a}{CtrlUp}
-return
-
-F22 & SC01F::
-  Send {Blind}{Tab}
-return
-
-F22 & SC020::
-  Send {Blind}{ShiftDown}
-return
-
-F22 & SC020 Up::
-  Send {ShiftUp}
-return
-
-F22 & SC021::
-  Send {Blind}{CtrlDown}
-return
-
-F22 & SC021 Up::
-  Send {CtrlUp}
-return
-
-F22 & SC022::
-  MouseMove, 0, 10, 0, R
-return
-
-F22 & SC023::
-  Send {Blind}{PgDn}
-return
-
-F22 & SC024::
-  Send {Blind}{Left}
-return
-
-F22 & SC025::
-  Send {Blind}{Down}
-return
-
-F22 & SC026::
-  Send {Blind}{Right}
-return
-
-F22 & SC027::
-  Send {Blind}{Backspace}
-return
-
-F22 & SC028::
-  SendInput {Raw}_
-return
-
-; bottom row
-
-F22 & SC056::
-  Send {CtrlDown}{y}{CtrlUp}
-return
-
-F22 & SC02C::
-  Send {CtrlDown}{z}{CtrlUp}
-return
-
-F22 & SC02D::
-  Send {CtrlDown}{x}{CtrlUp}
-return
-
-F22 & SC02E::
-  Send {CtrlDown}{c}{CtrlUp}
-return
-
-F22 & SC02F::
-  Send {CtrlDown}{v}{CtrlUp}
-return
-
-F22 & SC030::
-  mouseclick, left
-return
-
-F22 & SC031::
-  mouseclick, right
-return
-
-F22 & SC032::
-  MouseMove, -20, 0, 0, R
-return
-
-F22 & SC033::
-  mouseclick, middle
-return
-
-F22 & SC034::
-  MouseMove, 20, 0, 0, R
-return
-
-F22 & SC035::
-  Send {LWin}
-return
-
-; F22 & SC039::
-;   Send {Return}
-; return
-
-; RAlt cancel caps / nav layer
-
-RAlt::
-  GetKeyState, cp, CapsLock, T
-  if navLayer 
-  {
-    navLayer := 0
-  } 
-  else if cp = D
-  {
-    SetCapsLockState, AlwaysOff
-  } 
-Return
+    ; bottom row
+    SC056::^y
+    SC02C::^z
+    SC02D::^x
+    SC02E::^c
+    SC02F::^v
+    SC035::LWin
+#If
