@@ -137,7 +137,10 @@
             },
             "to": [
                 {
-                    "key_code": "home"
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                        "left_command"
+                    ]
                 }
             ],
             "conditions": [
@@ -160,7 +163,10 @@
             },
             "to": [
                 {
-                    "key_code": "end"
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                        "left_command"
+                    ]
                 }
             ],
             "conditions": [
@@ -354,6 +360,31 @@
             "to": [
                 {
                     "key_code": "x",
+                    "modifiers": [
+                        "left_command"
+                    ]
+                }
+            ],
+            "conditions": [
+                {
+                    "type": "variable_if",
+                    "name": "extend",
+                    "value": 1
+                }
+            ]
+        },{
+            "type": "basic",
+            "from": {
+                "key_code": "z",
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "z",
                     "modifiers": [
                         "left_command"
                     ]
